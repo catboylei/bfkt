@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "kotlin-lsp": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789580956,
+        "narHash": "sha256-y7SHR/bXPSOOG4YlMbWv/h3iEOYo8cN9tWSgqY+MAes=",
+        "owner": "itsyunaya",
+        "repo": "kotlin-lsp-nix",
+        "rev": "f6505b3564587adcb941b71f43049bbb12eeccfe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "itsyunaya",
+        "repo": "kotlin-lsp-nix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1789724158,
+        "narHash": "sha256-a+eLlfZMyiiI5LIQ946grNITLv+FMldenpy02jbE3NI=",
+        "rev": "0a3468a402c449992505b6a9fc5b06580141b750",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1075779.0a3468a402c4/nixexprs.tar.zst"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst"
+      }
+    },
+    "root": {
+      "inputs": {
+        "kotlin-lsp": "kotlin-lsp",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -1,0 +1,4 @@
+product:
+  # NOTE: currently only packaged for LinuxX64 and LinuxARM64
+  type: linux/app 
+  platforms: [jvm, android, iosArm64, iosSimulatorArm64]
