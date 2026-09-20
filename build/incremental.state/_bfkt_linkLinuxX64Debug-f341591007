@@ -1,0 +1,24 @@
+{
+    "codeVersion": "0.12.0",
+    "inputValues": {
+        "binary.options": "{}",
+        "entry.point": "",
+        "kotlin.settings": "{\"compilerVersion\":\"2.4.10\",\"languageVersion\":null,\"apiVersion\":null,\"compileIncrementally\":true,\"allWarningsAsErrors\":false,\"suppressWarnings\":false,\"debug\":null,\"optimization\":null,\"verbose\":false,\"progressiveMode\":false,\"linkerOptions\":[],\"languageFeatures\":[],\"optIns\":[],\"storeJavaParameterNames\":false,\"freeCompilerArgs\":[],\"compilerPlugins\":[]}",
+        "task.output.root": "/home/lei/Projects/bfkt/build/tasks/_bfkt_linkLinuxX64Debug"
+    },
+    "inputFiles": [
+        "/home/lei/Projects/bfkt/build/tasks/_bfkt_compileLinuxX64Debug/bfkt.klib"
+    ],
+    "inputFilesState": {
+        "/home/lei/Projects/bfkt/build/tasks/_bfkt_compileLinuxX64Debug/bfkt.klib": "size 7430 mtime 2026-09-20T13:48:17.718605993Z mode 420 owner lei group users"
+    },
+    "outputValues": {},
+    "outputFiles": [
+        "/home/lei/Projects/bfkt/build/tasks/_bfkt_linkLinuxX64Debug/bfkt.kexe"
+    ],
+    "outputFilesState": {
+        "/home/lei/Projects/bfkt/build/tasks/_bfkt_linkLinuxX64Debug/bfkt.kexe": "size 7432568 mtime 2026-09-20T13:48:46.14238163Z mode 493 owner lei group users"
+    },
+    "excludedOutputFiles": [],
+    "dynamicInputs": {}
+}

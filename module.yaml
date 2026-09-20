@@ -1,4 +1,7 @@
 product:
-  # NOTE: currently only packaged for LinuxX64 and LinuxARM64
+  # NOTE: currently only packaged for x86-64 Linux (linuxX64 in Kotlin-Toolchain)
   type: linux/app 
-  platforms: [jvm, android, iosArm64, iosSimulatorArm64]
+  platforms: [linuxX64]
+
+dependencies:
+  - com.github.ajalt.clikt:clikt:5.1.0 # CLI parsing 

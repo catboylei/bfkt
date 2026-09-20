@@ -1,0 +1,36 @@
+{
+    "codeVersion": "0.12.0",
+    "inputValues": {
+        "kotlin.settings": "{\"compilerVersion\":\"2.4.10\",\"languageVersion\":null,\"apiVersion\":null,\"compileIncrementally\":true,\"allWarningsAsErrors\":false,\"suppressWarnings\":false,\"debug\":null,\"optimization\":null,\"verbose\":false,\"progressiveMode\":false,\"linkerOptions\":[],\"languageFeatures\":[],\"optIns\":[],\"storeJavaParameterNames\":false,\"freeCompilerArgs\":[],\"compilerPlugins\":[]}",
+        "task.output.root": "/home/lei/Projects/bfkt/build/tasks/_bfkt_compileLinuxX64TestDebug"
+    },
+    "inputFiles": [
+        "/home/lei/Projects/bfkt/test@linux",
+        "/home/lei/Projects/bfkt/test@native",
+        "/home/lei/Projects/bfkt/test",
+        "/home/lei/Projects/bfkt/test@linuxX64",
+        "/home/lei/Projects/bfkt/build/tasks/_bfkt_compileLinuxX64Debug/bfkt.klib",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/clikt/clikt-linuxx64/5.1.0/clikt-linuxx64-5.1.0.klib",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/clikt/clikt-core-linuxx64/5.1.0/clikt-core-linuxx64-5.1.0.klib",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/mordant/mordant-linuxx64/3.0.2/mordant-linuxx64-3.0.2.klib",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/mordant/mordant-core-linuxx64/3.0.2/mordant-core-linuxx64-3.0.2.klib",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/colormath/colormath-linuxx64/3.6.0/colormath-linuxx64-3.6.0.klib"
+    ],
+    "inputFilesState": {
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/clikt/clikt-core-linuxx64/5.1.0/clikt-core-linuxx64-5.1.0.klib": "size 408285 mtime 2026-09-20T12:19:28.818439404Z mode 420 owner lei group users",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/clikt/clikt-linuxx64/5.1.0/clikt-linuxx64-5.1.0.klib": "size 48469 mtime 2026-09-20T12:19:28.920438955Z mode 420 owner lei group users",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/colormath/colormath-linuxx64/3.6.0/colormath-linuxx64-3.6.0.klib": "size 342209 mtime 2026-09-20T12:19:28.938438876Z mode 420 owner lei group users",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/mordant/mordant-core-linuxx64/3.0.2/mordant-core-linuxx64-3.0.2.klib": "size 712439 mtime 2026-09-20T12:19:29.218437645Z mode 420 owner lei group users",
+        "/home/lei/.cache/JetBrains/Kotlin/.m2.cache/com/github/ajalt/mordant/mordant-linuxx64/3.0.2/mordant-linuxx64-3.0.2.klib": "size 3840 mtime 2026-09-20T12:19:28.820439395Z mode 420 owner lei group users",
+        "/home/lei/Projects/bfkt/build/tasks/_bfkt_compileLinuxX64Debug/bfkt.klib": "size 7395 mtime 2026-09-20T13:46:44.776445037Z mode 420 owner lei group users",
+        "/home/lei/Projects/bfkt/test/helloWorld.bf": "size 123 mtime 2026-09-20T12:14:15.381186237Z",
+        "/home/lei/Projects/bfkt/test@linux": "MISSING",
+        "/home/lei/Projects/bfkt/test@linuxX64": "MISSING",
+        "/home/lei/Projects/bfkt/test@native": "MISSING"
+    },
+    "outputValues": {},
+    "outputFiles": [],
+    "outputFilesState": {},
+    "excludedOutputFiles": [],
+    "dynamicInputs": {}
+}

@@ -23,7 +23,7 @@
 				meta = prevAttrs.meta // { license = []; };
 			});
 
-			tools = [ pkgs.kotlin-cli lsp ];
+			tools = [ pkgs.kotlin-cli lsp pkgs.ktlint ];
 		in {
 			default = if pkgs.stdenv.isLinux
 			then
