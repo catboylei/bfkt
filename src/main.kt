@@ -40,9 +40,9 @@ class Run : CliktCommand() {
             readText(file)
         } catch (e: FileException) {
             throw CliktError(e.message)
-        }  
+        }
 
-		println(source)
+        println(source)
 	}
 }
 
