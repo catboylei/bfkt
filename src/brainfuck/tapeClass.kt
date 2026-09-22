@@ -1,4 +1,7 @@
-package brainfuck 
+package brainfuck
+
+import utils.CellValueOutOfBounds
+import utils.PointerOutOfBounds
 
 @kotlin.ExperimentalUnsignedTypes
 class Tape(val size: Int) {
@@ -18,8 +21,8 @@ class Tape(val size: Int) {
 			true -> (cells[ptr] + value).toUByte()
 			else -> when (Opts.wrapCells) {
 				Bounds.WRAP -> (cells[ptr] + value).toUByte()
-				Bounds.CLAMP -> (cells[ptr] + value).coerceIn(0u, 255u).toUByte() 
-				Bounds.ERROR -> throw IndexOutOfBoundsException("Value overflow at cell $ptr = ${cells[ptr] + value} (Change behavior with --wrapCell)")
+				Bounds.CLAMP -> (cells[ptr] + value).coerceIn(0u, 255u).toUByte()  
+				Bounds.ERROR -> throw CellValueOutOfBounds("Value overflow at cell $ptr = ${cells[ptr] + value} (Change behavior with --wrapCell)")
 			}
 		}
 	} 
@@ -29,7 +32,7 @@ class Tape(val size: Int) {
 			else -> when (Opts.wrapCells) {
 				Bounds.WRAP -> (cells[ptr] - value).toUByte()
 				Bounds.CLAMP -> (cells[ptr] - minOf(value, cells[ptr])).toUByte()
-				Bounds.ERROR -> throw IndexOutOfBoundsException("Value underflow at cell $ptr = ${cells[ptr] - value} (Change behavior with --wrapCell)")
+				Bounds.ERROR -> throw CellValueOutOfBounds("Value underflow at cell $ptr = ${cells[ptr] - value} (Change behavior with --wrapCell)")
 			}
 		}
 	} 
@@ -40,7 +43,7 @@ class Tape(val size: Int) {
 		ptr = when ((ptr + value) < size) {
 			true -> ptr + value
 			else -> when (Opts.wrapPtr) {
-				Bounds.ERROR -> throw IndexOutOfBoundsException("Pointer overflow at ptr = ${ptr + value} (Change behavior with --wrapPtr)")
+				Bounds.ERROR -> throw PointerOutOfBounds("Pointer overflow at ptr = ${ptr + value} (Change behavior with --wrapPtr)")
 				Bounds.CLAMP -> size - 1
 				Bounds.WRAP -> (ptr + value) % size
 			}
@@ -50,7 +53,7 @@ class Tape(val size: Int) {
 		ptr = when ((ptr - value) >= 0) {
 			true -> ptr - value
 			else -> when (Opts.wrapPtr) {
-				Bounds.ERROR -> throw IndexOutOfBoundsException("Pointer underflow at ptr = ${ptr - value} (Change behavior with --wrapPtr)")
+				Bounds.ERROR -> throw PointerOutOfBounds("Pointer underflow at ptr = ${ptr - value} (Change behavior with --wrapPtr)")
 				Bounds.CLAMP -> 0
 				Bounds.WRAP -> ((ptr - value) % size + size) % size 
 			}

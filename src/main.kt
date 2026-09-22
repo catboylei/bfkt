@@ -20,6 +20,7 @@ class Bfkt : CliktCommand() {
 	override val printHelpOnEmptyArgs = true
 	override fun run() = Unit
 
+	// hook up --version flag 
 	init {
 		versionOption(VERSION)
 	}
@@ -28,7 +29,7 @@ class Bfkt : CliktCommand() {
 class Run : CliktCommand() {
     override fun help(context: Context) = "Run Brainfuck Program"
 
-	// cannot use file arg because no JVM :/
+	// cannot use file type arg because no JVM :/
     val file: String by argument(help = "Source file")
 
 	// TODO: fix flags for wrapPtr and wrapCells 
