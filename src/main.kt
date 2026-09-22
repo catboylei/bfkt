@@ -31,6 +31,7 @@ class Run : CliktCommand() {
 	// cannot use file arg because no JVM :/
     val file: String by argument(help = "Source file")
 
+	// TODO: fix flags for wrapPtr and wrapCells 
 	val nocompile: Boolean by option(help = "Interpret without compiling").boolean().default(false)
     val wrap: Boolean by option(help = "Wrap pointer and cell values on overflow").boolean().default(false)
 
