@@ -3,41 +3,44 @@ package utils
 // instructions to not be folded (for obvious reasons)
 private val noFold = setOf('[', ']', '.', ',')
 
-// creates a jump table from the precompiled code
 fun buildJumpTable(code: Pair<CharArray, IntArray>): IntArray {
     val ins = code.first
     val table = IntArray(ins.size)
-    val stack = ArrayDeque<Int>()
+    val stack = IntArray(ins.size)
+	var sp = 0 // stack pointer
 
     for (i in ins.indices) {
         when (ins[i]) {
-            '[' -> stack.addLast(i)
+            '[' -> stack[sp++] = i
             ']' -> {
-                val open = stack.removeLastOrNull() ?: throw UnmatchedBracket("Unmatched ] bracket")
+				if (sp == 0) throw UnmatchedBracket("Unmatched ] bracket")
+                val open = stack[--sp]
                 table[open] = i
                 table[i] = open
-            }
+			}
         }
     }
 
-    if (stack.isNotEmpty()) { throw UnmatchedBracket("Unmatched [ bracket") }
+	if (sp != 0) { throw UnmatchedBracket("Unmatched [ bracket") }
     return table
 }
 
-// folds provided filtered code into precompiled arrays
 fun foldCode(code: String): Pair<CharArray, IntArray> {
-	val ins = mutableListOf<Char>()
-	val mult = mutableListOf<Int>()
+	// compute at worst possible array length
+    val ins = CharArray(code.length)
+    val mult = IntArray(code.length)
+    var count = 0
 
-	for (c in code) {
-		when (c) {
-			in noFold -> { ins.add(c); mult.add(1) }
-			ins.lastOrNull() -> { mult[mult.lastIndex]++ }
-			else -> {
-				ins.add(c); mult.add(1)	
-			}
-		}
-	} 
+    fun lastWritten(): Char? = if (count > 0) ins[count - 1] else null
 
-	return Pair(ins.toCharArray(), mult.toIntArray())
+    for (c in code) {
+        when (c) {
+            in noFold -> { ins[count] = c; mult[count] = 1; count++ }
+            lastWritten() -> { mult[count - 1]++ }
+            else -> { ins[count] = c; mult[count] = 1; count++ }
+        }
+    }
+
+	// trim the arrays 
+    return Pair(ins.copyOf(count), mult.copyOf(count))
 }
