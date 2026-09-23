@@ -45,9 +45,7 @@ class Run : CliktCommand() {
             throw CliktError(e.message)
         }
 
-        Program(source).apply {
-			this.debug()
-		}
+        Program(source)
 	}
 }
 

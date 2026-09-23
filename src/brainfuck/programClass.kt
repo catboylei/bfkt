@@ -17,10 +17,4 @@ class Program(source: String) {
         }
         println("Done in ${duration}!")
 	}
-
-	fun debug() {
-		println(code.first.concatToString())
-		println(code.second.contentToString())
-		println(jumpTable.contentToString())
-	}
 }
