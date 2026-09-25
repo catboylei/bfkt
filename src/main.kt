@@ -6,14 +6,17 @@ import com.github.ajalt.clikt.core.main
 import com.github.ajalt.clikt.core.subcommands
 import com.github.ajalt.clikt.parameters.arguments.argument
 import com.github.ajalt.clikt.parameters.options.default
-import com.github.ajalt.clikt.parameters.options.help
 import com.github.ajalt.clikt.parameters.options.option
-import com.github.ajalt.clikt.parameters.options.prompt
 import com.github.ajalt.clikt.parameters.options.versionOption
 import com.github.ajalt.clikt.parameters.types.boolean
-import com.github.ajalt.clikt.parameters.types.choice
 import utils.FileException
 import utils.readText
+import com.jakewharton.mosaic.runMosaicBlocking
+import com.jakewharton.mosaic.NonInteractivePolicy.Ignore
+import tui.Tui
+
+fun enterAlt() { println("\u001B[?1049h\u001B[?25l") } // alt screen and hide cursor
+fun leaveAlt() { println("\u001B[?25h\u001B[?1049l") }
 
 class Bfkt : CliktCommand() {
     override fun help(context: Context) = "A (fancy) Brainfuck Toolchain"
@@ -57,7 +60,32 @@ class Build : CliktCommand() {
 	val wrap: Boolean by option(help = "Wrap pointer and cell values on overflow").boolean().default(false)
 
     override fun run() { 
+		// TODO: yk the entire compiler no big deal
 	}
 }
 
-fun main(args: Array<String>) = Bfkt().subcommands(Run(), Build()).main(args)
+class Tui : CliktCommand() {
+	override fun help(context: Context) = "Open the TUI"
+
+    val file: String by argument(help = "Source file")
+	
+	override fun run() {
+
+		val source = try {
+            readText(file)
+        } catch (e: FileException) {
+            throw CliktError(e.message)
+        }
+
+		enterAlt()
+		try {	
+			runMosaicBlocking(onNonInteractive = Ignore) {
+				Tui(source)
+			}
+		} finally {
+			leaveAlt()
+		}
+	}
+}
+
+fun main(args: Array<String>) = Bfkt().subcommands(Run(), Build(), Tui()).main(args)

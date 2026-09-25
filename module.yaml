@@ -5,3 +5,8 @@ product:
 
 dependencies:
   - com.github.ajalt.clikt:clikt:5.1.0 # CLI parsing 
+  - com.jakewharton.mosaic:mosaic-runtime:0.18.0 # tui 
+
+settings:
+  compose:
+    enabled: true # mosaic 
