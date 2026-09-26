@@ -1,5 +1,6 @@
 package tui
 
+import TUI_FOREGROUND
 import androidx.compose.runtime.Composable
 import com.jakewharton.mosaic.layout.drawBehind
 import com.jakewharton.mosaic.layout.padding
@@ -12,7 +13,9 @@ import com.jakewharton.mosaic.ui.unit.IntOffset
 import com.jakewharton.mosaic.ui.unit.IntSize
 
 @Composable
-fun Block(modifier: Modifier = Modifier, title: String? = null, borderColor: Color = Color.Unspecified, content: @Composable BoxScope.() -> Unit, ) {
+fun Block(modifier: Modifier = Modifier, title: String? = null, content: @Composable BoxScope.() -> Unit, ) {
+    val borderColor = TUI_FOREGROUND
+
     Box(
         modifier.drawBehind {
             if (width < 2 || height < 2) return@drawBehind
